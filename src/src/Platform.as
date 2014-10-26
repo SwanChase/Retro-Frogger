@@ -35,7 +35,7 @@ package src
 			turtle3.x = turtle3.x - 3;
 			turtle2.x = turtle2.x - 1;
 			turtle1.x = turtle1.x - 2;
-			//trace(log1.x,log2.x,log3.x);
+			
 			
 			//LOGS------------------------------------>
 			if (l == log1.x)
@@ -59,16 +59,10 @@ package src
 			{
 				turtle2.x = l;
 			}
-			trace(turtle3.x);
 			if (-92 == turtle3.x)
 			{
 				turtle3.x = l;
 			}
-			/*if (t <= log2.x)
-			{
-				log2.x = 230;
-			}
-			*/
 			
 		}
 		

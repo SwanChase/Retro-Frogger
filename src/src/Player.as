@@ -93,19 +93,9 @@ package src
 			
 			else if (lastFrog != null)
 			{
-				while (true)
-				{
-					
-				if (frogCount >= 1) 
-				{ 
-					trace("hi");
-					frog.x = 110;
-					frog.y = 320;
-					break;	
-				} 
-				frogCount ++;
-				
-				}
+				trace("hi");
+				frog.x = 110;
+				frog.y = 320;
 			}
 			
 		}

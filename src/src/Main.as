@@ -20,6 +20,7 @@ package src
 		private var water : Water;
 		private var finish : Finish;
 		private var road : Road;
+		private var car : Car;
 		
 		private var cars : Array;
 		
@@ -70,6 +71,7 @@ package src
 			finish = new Finish();
 			backGround = new Background();
 			platforms = new LogPlatform();
+			car = new Car();
 			
 			
 			water.x = 0;
@@ -98,12 +100,12 @@ package src
 		
 		private function update(e:Event):void 
 		{
-			/*var j : int	= cars.length;
+			var j : int	= cars.length;
 			
 			for (var k : int = j - 1; k >= 0 ; k--)
 			{
 				cars[k].update();
-			}*/
+			}
 		}
 		
 		private function newRaceCar():void

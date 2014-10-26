@@ -13,6 +13,7 @@ package src
 		
 		protected var currentPos :Number;
 		
+		
 		private var raceCar : RaceCar;
 		private var bulldozer : BulldozerCar;
 		private var truck : TruckCar;
@@ -48,18 +49,14 @@ package src
 			truck.scaleX = 1;
 			truck.scaleY = 1;
 			addChild(truck);
-			trace(truck);
 		}
 		
 		private function update(e:Event):void
 		{
 			var l : int = 220;
 			
-			raceCar.x = x + 5;
-			bulldozer.x = x + 5;
-			truck.x = x + 5;
+			this.x = x + 5;
 			
-			trace(truck.x);
 			if (l == x)
 			{
 				x = -90;

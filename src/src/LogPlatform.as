@@ -17,6 +17,7 @@ package src
 			log3 = new Log3();
 			log3.y = log2.y - 40;
 			
+			//<------------------------------------->
 			
 			turtle1 = new Turtle1();
 			turtle1.y = -15;
@@ -34,6 +35,8 @@ package src
 			addChild(log1);
 			addChild(log2);
 			addChild(log3);
+			
+			//<--------------------->
 			
 			addChild(turtle1);
 			addChild(turtle2);
