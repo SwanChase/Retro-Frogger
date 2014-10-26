@@ -14,14 +14,16 @@ package src
 	 */
 	public class Main extends Sprite 
 	{
-		private var frog : Frogger;
-		private var backGround : Background = new Background;
-		private var water : Water = new Water;
-		private var road : Road = new Road;
+		private var player : Player;
+		private var playerDeath : FrogDeath;
+		private var backGround : Background;
+		private var water : Water;
+		private var finish : Finish;
+		private var road : Road;
 		
 		private var cars : Array;
 		
-		private var platforms : LogPlatform;
+		public var platforms : LogPlatform;
 		
 		
 		
@@ -30,9 +32,24 @@ package src
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			addEventListener(Event.ENTER_FRAME, update);
+			//addEventListener(Event.ENTER_FRAME, hitTestObject);
 		}
 		
-		private function init(e:Event = null):void 
+		/*public function hitTestObject(stage:player):Boolean
+		{
+			while (cars.hitTestObject(player))
+			{
+				playerDeath = new FrogDeath();
+				addChild(playerDeath);
+			}
+			
+			while (platforms.hitTestObject(player))
+			{
+				player.x += 5;
+			}
+		}*/
+		
+		public function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
@@ -42,52 +59,53 @@ package src
 			
 			function CarTimerListener (e:TimerEvent):void
 			{
-				newRaceCar();
+				addEventListener(Event.ACTIVATE,newRaceCar);
 			}
 			
 			cars = [];
 			
-			frog = new Frogger();
+			road = new Road();
+			player = new Player();
 			water = new Water();
+			finish = new Finish();
 			backGround = new Background();
 			platforms = new LogPlatform();
+			
 			
 			water.x = 0;
 			water.y = 0;
 			water.scaleX = 1;
 			water.scaleY = 1;
 			
+			water.x = 0;
+			water.y = 0;
+			
 			backGround.x = 0;
 			backGround.y = 0;
 			backGround.scaleX = 1;
 			backGround.scaleY = 1;
 			
-			frog.x = 110;
-			frog.y = 320;
-			frog.scaleX = 1;
-			frog.scaleY = 1;
+			platforms.y = 175;
 			
-			
-			platforms.y = 170;
-			
+			addChild(road);
 			addChild(water);
+			addChild(finish);
 			addChild(backGround);
 			addChild(platforms);
-			addChild(frog);
+			addChild(player);
 			
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
-			stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 		}
 		
 		private function update(e:Event):void 
 		{
-			var j : int	= cars.length;
+			/*var j : int	= cars.length;
 			
 			for (var k : int = j - 1; k >= 0 ; k--)
 			{
 				cars[k].update();
-			}
+			}*/
 		}
+		
 		private function newRaceCar():void
 		{
 			var newRaceCar: RaceCar = new RaceCar();
@@ -99,39 +117,6 @@ package src
 			
 			cars.push(newRaceCar);
 		}
-		
-		private function keyUp(e:KeyboardEvent):void 
-		{
-			
-		}
-		
-		private function keyDown(e:KeyboardEvent):void 
-		{
-			
-			if (e.keyCode == 38)
-			{
-				frog.y -= 20;
-				frog.rotation = 0;
-				
-			}
-			if (e.keyCode == 40)
-			{
-				frog.y += 20;
-				frog.rotation = 180;
-			}
-			if (e.keyCode == 39)
-			{
-				frog.x += 20;
-				frog.rotation = 90;
-			}
-			if (e.keyCode == 37)
-			{
-				frog.x -= 20;
-				frog.rotation = -90;
-			}
-			
-		}
-		
 		
 	}
 	

@@ -48,15 +48,18 @@ package src
 			truck.scaleX = 1;
 			truck.scaleY = 1;
 			addChild(truck);
-			
+			trace(truck);
 		}
 		
-		protected function update(e:Event):void
+		private function update(e:Event):void
 		{
 			var l : int = 220;
 			
-			this.x = x + 5;
+			raceCar.x = x + 5;
+			bulldozer.x = x + 5;
+			truck.x = x + 5;
 			
+			trace(truck.x);
 			if (l == x)
 			{
 				x = -90;
